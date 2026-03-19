@@ -6,8 +6,8 @@ import { Link } from 'expo-router';
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText type="title">Bem-vindo ao login!</ThemedText>
-      <Link href="/screens/home">
+      <ThemedText type="title">!</ThemedText>
+      <Link href="./index">
          <View style={styles.button}>
                   <ThemedText style={styles.buttonText}>Entrar</ThemedText>
                 </View>
