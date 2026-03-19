@@ -6,10 +6,11 @@ import React from 'react';
 export function CustomTab(){
    return (
 <View style={{ flexDirection: 'row'}}>
-    <View style={{ width: 80, backgroundColor: '#ffffff'}}>
-
+    <View style={{ width: 80, backgroundColor: '#b92424'}}>
     </View>
-    
+    <View style={{ flex: 1 }}>
+    {/* conteúdo */}
+  </View>
     </View>
    );
 }

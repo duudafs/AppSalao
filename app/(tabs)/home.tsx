@@ -3,9 +3,14 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
 
+
+
 export default function HomeScreen() {
   return (
+
+    
     <ThemedView style={styles.container}>
+      
       <ThemedText type="title">!</ThemedText>
       <Link href="./index">
          <View style={styles.button}>
@@ -18,6 +23,8 @@ export default function HomeScreen() {
 
 
 const styles = StyleSheet.create({
+
+
   container: {
     flex: 1,
     alignItems: 'center',

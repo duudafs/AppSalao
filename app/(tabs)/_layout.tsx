@@ -5,6 +5,7 @@ import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { CustomTab } from '@/components/custom-tab';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -12,7 +13,8 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor:'#aa0063',
+         tabBarInactiveTintColor: '#999',
         headerShown: false,
         tabBarButton: HapticTab,
       }}>
@@ -20,14 +22,15 @@ export default function TabLayout() {
         name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+             tabBarIcon: ({ focused, color })  => <IconSymbol size={28} name={focused ? "house.fill" : "house"} color={'#aa0063'} />,
         }}
       />
       <Tabs.Screen
         name="explore"
         options={{
           title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+             tabBarIcon: ({ focused, color })  => <IconSymbol size={28} name="paperplane" color={'#b1b1b1'} />,
+         
         }}
       />
     </Tabs>
