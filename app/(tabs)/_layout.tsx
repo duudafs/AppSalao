@@ -25,6 +25,15 @@ export default function TabLayout() {
              tabBarIcon: ({ focused, color })  => <IconSymbol size={28} name={focused ? "house.fill" : "house"} color={'#aa0063'} />,
         }}
       />
+
+      <Tabs.Screen
+        name="person"
+        options={{
+          title: 'Clientes',
+          tabBarIcon: ({ focused, color })  => <IconSymbol size={28} name={focused ? "person.fill" : "person"} color={'#aa0063'} />,
+        }}
+      />
+
       <Tabs.Screen
         name="explore"
         options={{

@@ -9,6 +9,33 @@ export default function Login() {
   const [senha, setSenha] = useState('');
 const router = useRouter();
   
+const handleLogin = async () => {
+  try {
+    const response = await fetch('http://192.168.0.29:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        nome: nome,
+        senha: senha,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    if (response.ok) {
+      router.replace('/home');
+    } else {
+      alert('erro no login');
+    }
+
+  } catch (error) {
+    console.log(error);
+    alert('erro de conexão');
+  }
+};
 
   return (
     <View style={styles.container}>
@@ -33,10 +60,7 @@ const router = useRouter();
       secureTextEntry
     />
 
-<TouchableOpacity 
-  style={styles.sign}
-  onPress={() => router.replace('/home')}
->
+<TouchableOpacity style={styles.sign} onPress={handleLogin}>
   <Text style={styles.textLogin}>Login</Text>
 </TouchableOpacity>
 

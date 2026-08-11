@@ -3,21 +3,17 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
 
-
+type User ={
+  nome: string;
+}
 
 export default function HomeScreen() {
   return (
 
     
-    <ThemedView style={styles.container}>
-      
-      <ThemedText type="title">!</ThemedText>
-      <Link href="./index">
-         <View style={styles.button}>
-                  <ThemedText style={styles.buttonText}>Entrar</ThemedText>
-                </View>
-      </Link>
-    </ThemedView>
+    <View style={styles.container}>
+      <ThemedText type="title">Bem-vindo, (item.nome)!</ThemedText>
+    </View>
   );
 }
 
