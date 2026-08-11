@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput} from 'react-native';
 import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
 
 type Servico = {
   id: number;
@@ -12,12 +13,16 @@ export default function Servicos(){
     const [servicos, setServicos] = useState<Servico[]>([]);
 
     useEffect(() => {
-        fetch('http://192.168.0.29:3000/servicos')
-            .then(response => response.json())
-            .then(data => setServicos(data))
-            .catch(err => console.log(err));
-
-    }, []);
+  async function carregarServicos() {
+    const { data, error } = await supabase.from('servicos').select('*');
+    if (error) {
+      console.log(error);
+    } else {
+      setServicos(data);
+    }
+  }
+  carregarServicos();
+}, []);
 
     return(
         <View style={styles.container}>
